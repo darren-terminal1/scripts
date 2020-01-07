@@ -46,6 +46,7 @@ sudo ufw allow 5432/tcp
 sudo ufw allow 5432/udp
 sudo ufw allow ssh
 sudo ufw allow samba
+sudo ufw allow from any to any port 1194 proto udp
 sudo ufw reload
 
 # Configure apache2

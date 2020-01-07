@@ -17,6 +17,7 @@ mkdir ~/Downloads
 sudo mkdir /scripts
 cp /media/darren/UTILS/* ~/Downloads
 sudo cp /media/darren/UTILS/scripts/* /scripts
+sudo cp /media/darren/UTILS/Home/* ~/Pictures
 sudo gpasswd --add ${USER} dialout
 
 # Install core applications
@@ -36,6 +37,7 @@ sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw allow ssh
 sudo ufw allow samba
+sudo ufw allow from any to any port 1194 proto udp
 sudo ufw reload
 
 # Install synergy
@@ -45,6 +47,7 @@ sudo dpkg -i synergy.deb
 flatpak install -y flathub io.atom.Atom
 flatpak install -y flathub com.slack.Slack
 flatpak install -y flathub com.jetbrains.PyCharm-Community
+flatpak install -y flathub com.jetbrains.DataGrip
 flatpak install -y flathub com.makemkv.MakeMKV
 flatpak install -y flathub com.dropbox.Client
 
