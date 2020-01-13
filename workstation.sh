@@ -1,11 +1,16 @@
 #!/bin/bash
 
 # Ensure repositories are up to date and updates are installed
-# Add nordvpn and chrome repositories and remove firefox prior to apt update
+# Add nordvpn, chrome and virtualbox repositories and remove firefox prior to apt update
 sudo wget https://repo.nordvpn.com/gpg/nordvpn_public.asc -O - | sudo apt-key add -
 sudo wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+
 sudo sh -c 'echo "deb https://repo.nordvpn.com/deb/nordvpn/debian stable main" >> /etc/apt/sources.list.d/nordvpn.list'
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+sudo sh -c 'echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian bionic contrib" >> /etc/apt/sources.list.d/virtualbox.list'
+
 sudo apt remove -y firefox
 sudo apt update
 sudo apt autoremove -y
@@ -25,7 +30,7 @@ sudo gpasswd --add ${USER} dialout
 sudo apt install -y neofetch zsh git cdrecord figlet unrar zip unzip p7zip-full p7zip-rar rar bzip2 wget samba apt-show-versions openssh-server regionset apt-transport-https nordvpn
 
 # WORKSTATION:
-sudo apt install -y gufw terminator libapt-pkg-perl libavahi-compat-libdnssd1 libqt5core5a libqt5gui5 libqt5network5 libqt5widgets5 libavahi-compat-libdnssd1 ubuntu-restricted-extras openjdk-11-jdk flatpak gnome-software-plugin-flatpak setserial gtkterm libjpeg62 nuitka python-pip libqt4-opengl beignet google-chrome-stable chrome-gnome-shell
+sudo apt install -y gufw terminator libapt-pkg-perl libavahi-compat-libdnssd1 libqt5core5a libqt5gui5 libqt5network5 libqt5widgets5 libavahi-compat-libdnssd1 ubuntu-restricted-extras openjdk-11-jdk flatpak gnome-software-plugin-flatpak setserial gtkterm libjpeg62 nuitka python-pip libqt4-opengl beignet google-chrome-stable chrome-gnome-shell virtualbox virtualbox-ext-pack virtualbox-guest-additions-iso
 
 sudo cp ~/Downloads/motd-thinkcentre /etc/motd
 
