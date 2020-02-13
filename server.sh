@@ -70,7 +70,7 @@ sudo apt install -y bacula
 sudo apt install -y webmin
 
 # Configure webmin
-sudo cp ~/Downloads/media1.conf /etc/apache2/sites-available/media2.conf
+sudo cp ~/Downloads/media1.conf /etc/apache2/sites-available/media1.conf
 sudo sh -c "echo 'refers=media1' >> /etc/webmin/config"
 sudo nano /etc/webmin/miniserv.conf
 sudo systemctl restart webmin

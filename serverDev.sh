@@ -27,7 +27,7 @@ sudo gpasswd --add ${USER} dialout
 
 # Install core applications
 # COMMON:
-sudo apt install -y neofetch zsh git cdrecord figlet unrar zip unzip p7zip-full p7zip-rar rar bzip2 wget samba apt-show-versions openssh-server regionset apt-transport-https nordvpn
+sudo apt install -y neofetch zsh git figlet unrar zip unzip p7zip-full p7zip-rar rar bzip2 wget samba apt-show-versions openssh-server regionset apt-transport-https
 
 # SERVER:
 sudo apt install -y apache2 certbot mon smartmontools libapt-pkg-perl libio-pty-perl python3-certbot-apache ntpdate sntp cups libauthen-libwrap-perl libdbd-pg-perl libdbi-perl
@@ -63,19 +63,16 @@ sudo apt install -y postgresql-12
 sudo nano /etc/postgresql/12/main/pg_hba.conf
 sudo nano /etc/postgresql/12/main/postgresql.conf
 
-# Install bacula
-sudo apt install -y bacula
-
 # Install webmin
 sudo apt install -y webmin
 
 # Configure webmin
-sudo cp ~/Downloads/media1.conf /etc/apache2/sites-available/media2.conf
+sudo cp ~/Downloads/devel.conf /etc/apache2/sites-available/devel.conf
 sudo sh -c "echo 'refers=devel' >> /etc/webmin/config"
 sudo nano /etc/webmin/miniserv.conf
 sudo systemctl restart webmin
 sudo a2enmod proxy_http
-sudo a2ensite media1
+sudo a2ensite devel
 sudo systemctl restart apache2
 sudo certbot --apache --email darren.williams1973@icloud.com -d devel.cable.virginmedia.net --agree-tos --redirect --noninteractive
 
