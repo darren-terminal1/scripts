@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 
 # Ensure repositories are up to date and updates are installed
 # Add nordvpn, chrome and virtualbox repositories and remove firefox prior to apt update
@@ -11,29 +11,29 @@ sudo sh -c 'echo "deb https://repo.nordvpn.com/deb/nordvpn/debian stable main" >
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 sudo sh -c 'echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian bionic contrib" >> /etc/apt/sources.list.d/virtualbox.list'
 
-sudo apt remove -y firefox
 sudo apt update
+sudo apt remove -y firefox
 sudo apt autoremove -y
 sudo apt autoclean -y
 sudo apt upgrade -y
 
 # Copy scripts and files to home drive
+cd ~/
+sudo chown -R ${USER} *
 mkdir ~/Downloads
 sudo mkdir /scripts
-cp /media/darren/UTILS/* ~/Downloads
-sudo cp /media/darren/UTILS/scripts/* /scripts
-sudo cp /media/darren/UTILS/Home/* ~/Pictures
+cp /media/${USER}/UTILS/* ~/Downloads
+sudo cp /media/${USER}/UTILS/scripts/* /scripts
+sudo cp /media/${USER}/UTILS/Home/* ~/Pictures
+sudo cp ~/Downloads/motd-thinkcentre /etc/motd
 sudo gpasswd --add ${USER} dialout
 
 # Install core applications
 # COMMON:
-sudo apt install -y neofetch zsh git cdrecord figlet unrar zip unzip p7zip-full p7zip-rar rar bzip2 wget samba apt-show-versions openssh-server regionset apt-transport-https nordvpn
+sudo apt install -y neofetch zsh git cdrecord figlet unrar zip unzip p7zip-full p7zip-rar rar bzip2 wget samba apt-show-versions openssh-server regionset apt-transport-https nordvpn curl htop
 
 # WORKSTATION:
-sudo apt install -y gufw terminator libapt-pkg-perl libavahi-compat-libdnssd1 libqt5core5a libqt5gui5 libqt5network5 libqt5widgets5 libavahi-compat-libdnssd1 ubuntu-restricted-extras openjdk-11-jdk flatpak gnome-software-plugin-flatpak setserial gtkterm libjpeg62 nuitka python-pip libqt4-opengl beignet google-chrome-stable chrome-gnome-shell virtualbox virtualbox-ext-pack virtualbox-guest-additions-iso
-
-sudo cp ~/Downloads/motd-thinkcentre /etc/motd
-
+sudo apt install -y gufw terminator libapt-pkg-perl libavahi-compat-libdnssd1 libqt5core5a libqt5gui5 libqt5network5 libqt5widgets5 libavahi-compat-libdnssd1 ubuntu-restricted-extras openjdk-11-jdk flatpak gnome-software-plugin-flatpak setserial gtkterm libjpeg62 beignet-opencl-icd google-chrome-stable chrome-gnome-shell virtualbox virtualbox-ext-pack virtualbox-guest-additions-iso python3-venv python3-pip
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Enable and configure the firewall
@@ -49,15 +49,22 @@ sudo ufw reload
 cd ~/Downloads
 sudo dpkg -i synergy.deb
 
+# Install generic applications via Flathub
 flatpak install -y flathub io.atom.Atom
 flatpak install -y flathub com.slack.Slack
+flatpak install -y flathub com.makemkv.MakeMKV
+flatpak install -y flathub org.freedesktop.Platform.ffmpeg
+
+# Install development applications via Flathub
 flatpak install -y flathub com.jetbrains.PyCharm-Community
 flatpak install -y flathub com.jetbrains.DataGrip
-flatpak install -y flathub com.makemkv.MakeMKV
-flatpak install -y flathub com.dropbox.Client
+flatpak install -y flathub org.gnome.gitg
+flatpak install -y flathub com.getpostman.Postman
 
-sudo snap install ffmpeg
-sudo snap install github-desktop --beta --classic
+# Install applications via snap that are not availabile on flathub
+snap install 1password-linux
+snap install indicator-sensors
+snap install ubuntu-release-info
 
 # Cleanup the system a bit before finishing
 sudo apt autoremove -y
@@ -70,3 +77,6 @@ sudo chsh -s /bin/zsh root
 # Install Oh-My-Zsh
 cd ~/Downloads
 sudo sh -c "$(wget -O- https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# sudo apt install -y nuitka libqt4-opengl
+# flatpak install -y flathub com.dropbox.Client
