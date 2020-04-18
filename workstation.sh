@@ -19,7 +19,6 @@ sudo apt upgrade -y
 
 # Copy scripts and files to home drive
 cd ~/
-sudo chown -R ${USER} *
 mkdir ~/Downloads
 sudo mkdir /scripts
 cp /media/${USER}/UTILS/* ~/Downloads
@@ -27,6 +26,7 @@ sudo cp /media/${USER}/UTILS/scripts/* /scripts
 sudo cp /media/${USER}/UTILS/Home/* ~/Pictures
 sudo cp ~/Downloads/motd-thinkcentre /etc/motd
 sudo gpasswd --add ${USER} dialout
+sudo chown -R ${USER} *
 
 # Install core applications
 # COMMON:
