@@ -10,6 +10,7 @@ wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key a
 sudo sh -c 'echo "deb https://repo.nordvpn.com/deb/nordvpn/debian stable main" >> /etc/apt/sources.list.d/nordvpn.list'
 sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 sudo sh -c 'echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian bionic contrib" >> /etc/apt/sources.list.d/virtualbox.list'
+sudo add-apt-repository ppa:agornostal/ulauncher -y
 
 sudo apt update
 sudo apt remove -y firefox
@@ -33,7 +34,13 @@ sudo chown -R ${USER} *
 sudo apt install -y neofetch zsh git cdrecord figlet unrar zip unzip p7zip-full p7zip-rar rar bzip2 wget samba apt-show-versions openssh-server regionset apt-transport-https nordvpn curl htop
 
 # WORKSTATION:
-sudo apt install -y gufw terminator libapt-pkg-perl libavahi-compat-libdnssd1 libqt5core5a libqt5gui5 libqt5network5 libqt5widgets5 libavahi-compat-libdnssd1 ubuntu-restricted-extras openjdk-11-jdk flatpak gnome-software-plugin-flatpak setserial gtkterm libjpeg62 beignet-opencl-icd google-chrome-stable chrome-gnome-shell virtualbox virtualbox-ext-pack virtualbox-guest-additions-iso python3-venv python3-pip
+# Libraries
+sudo apt install -y libapt-pkg-perl libavahi-compat-libdnssd1 libqt5core5a libqt5gui5 libqt5network5 libqt5widgets5 libavahi-compat-libdnssd1 libjpeg62 beignet-opencl-icd
+# Applications
+sudo apt install -y gufw openjdk-11-jdk flatpak gnome-software-plugin-flatpak setserial gtkterm google-chrome-stable chrome-gnome-shell virtualbox virtualbox-ext-pack virtualbox-guest-additions-iso python3-venv python3-pip
+# Extras
+sudo apt install -y ubuntu-restricted-extras ulauncher gnome-shell-extensions gnome-shell-extension-caffeine gnome-shell-extension-show-ip gnome-shell-extension-weather gnome-software-plugin-flatpak
+# Flatpak
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 # Enable and configure the firewall
@@ -61,7 +68,7 @@ flatpak install -y flathub com.jetbrains.DataGrip
 flatpak install -y flathub org.gnome.gitg
 flatpak install -y flathub com.getpostman.Postman
 
-# Install applications via snap that are not availabile on flathub
+# Install applications via snap that are not availabile on Flathub
 snap install 1password-linux
 snap install indicator-sensors
 snap install ubuntu-release-info
