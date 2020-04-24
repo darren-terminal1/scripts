@@ -37,7 +37,7 @@ sudo apt install -y neofetch zsh git cdrecord figlet unrar zip unzip p7zip-full 
 # Libraries
 sudo apt install -y libapt-pkg-perl libavahi-compat-libdnssd1 libqt5core5a libqt5gui5 libqt5network5 libqt5widgets5 libavahi-compat-libdnssd1 libjpeg62 beignet-opencl-icd
 # Applications
-sudo apt install -y gufw openjdk-11-jdk flatpak gnome-software-plugin-flatpak setserial gtkterm google-chrome-stable chrome-gnome-shell virtualbox virtualbox-ext-pack virtualbox-guest-additions-iso python3-venv python3-pip
+sudo apt install -y gufw openjdk-11-jdk flatpak gnome-software-plugin-flatpak setserial gtkterm google-chrome-stable chrome-gnome-shell virtualbox virtualbox-ext-pack virtualbox-guest-additions-iso python3-venv python3-pip steam-installer
 # Extras
 sudo apt install -y ubuntu-restricted-extras ulauncher gnome-shell-extensions gnome-shell-extension-caffeine gnome-shell-extension-show-ip gnome-shell-extension-weather gnome-software-plugin-flatpak
 # Flatpak
