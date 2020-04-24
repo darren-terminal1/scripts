@@ -65,7 +65,6 @@ flatpak install -y flathub org.freedesktop.Platform.ffmpeg
 # Install development applications via Flathub
 flatpak install -y flathub com.jetbrains.PyCharm-Community
 flatpak install -y flathub com.jetbrains.DataGrip
-flatpak install -y flathub org.gnome.gitg
 flatpak install -y flathub com.getpostman.Postman
 
 # Install applications via snap that are not availabile on Flathub
