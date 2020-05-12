@@ -27,10 +27,16 @@ sudo gpasswd --add ${USER} dialout
 
 # Install core applications
 # COMMON:
-sudo apt install -y neofetch zsh git cdrecord figlet unrar zip unzip p7zip-full p7zip-rar rar bzip2 wget samba apt-show-versions openssh-server regionset apt-transport-https nordvpn
+sudo apt install -y neofetch zsh git cdrecord figlet unrar zip unzip p7zip-full p7zip-rar rar bzip2 wget samba apt-show-versions openssh-server regionset apt-transport-https nordvpn curl htop
 
 # SERVER:
 sudo apt install -y apache2 certbot mon smartmontools libapt-pkg-perl libio-pty-perl python3-certbot-apache ntpdate sntp cups libauthen-libwrap-perl libdbd-pg-perl libdbi-perl
+
+# Install NODE and Homebridge
+curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -
+sudo apt-get install -y nodejs gcc g++ make python
+sudo npm install -g --unsafe-perm homebridge homebridge-config-ui-x
+sudo hb-service install --user homebridge
 
 sudo cp ~/Downloads/motd-media1 /etc/motd
 
@@ -44,6 +50,8 @@ sudo ufw allow 24800/tcp
 sudo ufw allow 24800/udp
 sudo ufw allow 5432/tcp
 sudo ufw allow 5432/udp
+sudo ufw allow 8581/tcp
+sudo ufw allow 8581/udp
 sudo ufw allow ssh
 sudo ufw allow samba
 sudo ufw allow from any to any port 1194 proto udp

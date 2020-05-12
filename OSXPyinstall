@@ -1,0 +1,16 @@
+brew cask install postgres
+initdb postgres
+brew cask install postgrespreferencepane
+brew install pyenv
+pyenv install 3.8.2
+pyenv global 3.8.2
+echo -e 'if command -v pyenv 1>/dev/null 2>&1; then\n  eval "$(pyenv init -)"\nfi' >> ~/.zshrc
+pip install --upgrade pip
+pip install wheel
+pip install --upgrade setuptools
+pip install virtualenv
+pip install django
+pip install postgres
+pip install django-postgres
+pip install django-postgres-extra
+pip install django-postgres-utils
