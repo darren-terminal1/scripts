@@ -35,11 +35,11 @@ sudo apt install -y neofetch zsh git cdrecord figlet unrar zip unzip p7zip-full 
 
 # WORKSTATION:
 # Libraries
-sudo apt install -y libapt-pkg-perl libavahi-compat-libdnssd1 libqt5core5a libqt5gui5 libqt5network5 libqt5widgets5 libavahi-compat-libdnssd1 libjpeg62 beignet-opencl-icd libopenal1 libopenal-data libopenal-dev
+sudo apt install -y libapt-pkg-perl libavahi-compat-libdnssd1 libqt5core5a libqt5gui5 libqt5network5 libqt5widgets5 libavahi-compat-libdnssd1 libjpeg62 beignet-opencl-icd libopenal1 libopenal-data libopenal-dev python3-launchpadli
 # Applications
 sudo apt install -y gufw openjdk-11-jdk flatpak gnome-software-plugin-flatpak setserial gtkterm google-chrome-stable chrome-gnome-shell virtualbox virtualbox-ext-pack virtualbox-guest-additions-iso python3-venv python3-pip steam-installer
 # Extras
-sudo apt install -y ubuntu-restricted-extras ulauncher gnome-shell-extensions gnome-shell-extension-caffeine gnome-shell-extension-show-ip gnome-shell-extension-weather gnome-software-plugin-flatpak
+sudo apt install -y ubuntu-restricted-extras ulauncher gnome-shell-extensions gnome-shell-extension-caffeine gnome-shell-extension-show-ip gnome-shell-extension-weather gnome-software-plugin-flatpak ccextractor
 # Flatpak
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
@@ -71,6 +71,14 @@ flatpak install -y flathub com.getpostman.Postman
 snap install 1password-linux
 snap install indicator-sensors
 snap install ubuntu-release-info
+snap install bashtop
+
+# Connect bashtop to services
+sudo snap connect bashtop:mount-observe
+sudo snap connect bashtop:network-control
+sudo snap connect bashtop:hardware-observe
+sudo snap connect bashtop:system-observe
+sudo snap connect bashtop:process-control
 
 # Cleanup the system a bit before finishing
 sudo apt autoremove -y
