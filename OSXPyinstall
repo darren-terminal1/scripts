@@ -1,5 +1,5 @@
 brew cask install postgres
-brew install libpq
+brew install libpq sdl sdl_image sdl_mixer sdl_ttf portmidi
 initdb postgres
 brew cask install postgrespreferencepane
 brew install pyenv
@@ -11,8 +11,6 @@ pip install wheel
 pip install --upgrade setuptools
 pip install virtualenv
 pip install psycopg2-binary
-pip install django
 pip install postgres
-pip install django-postgres
-pip install django-postgres-extra
-pip install django-postgres-utils
+pip install django django-postgres django-postgres-extra django-postgres-utils
+pip install numpy scipy pandas matplotlib
