@@ -91,6 +91,3 @@ sudo chsh -s /bin/zsh root
 # Install Oh-My-Zsh
 cd ~/Downloads
 sudo sh -c "$(wget -O- https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-# sudo apt install -y nuitka libqt4-opengl
-# flatpak install -y flathub com.dropbox.Client
