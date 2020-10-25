@@ -13,7 +13,7 @@ sudo sh -c 'echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/de
 sudo add-apt-repository ppa:agornostal/ulauncher -y
 
 sudo apt update
-sudo apt remove -y firefox
+sudo apt remove -y firefox firefox-locale-en
 sudo apt autoremove -y
 sudo apt autoclean -y
 sudo apt upgrade -y
