@@ -9,8 +9,7 @@ sudo sh -c 'echo "deb https://repo.nordvpn.com/deb/nordvpn/debian stable main" >
 wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O- | sudo apt-key add -
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ bionic-pgdg main" | sudo tee /etc/apt/sources.list.d/postgresql.list'
 
-sudo wget http://www.webmin.com/jcameron-key.asc
-sudo apt-key add jcameron-key.asc
+sudo wget http://www.webmin.com/jcameron-key.asc | sudo apt-key add jcameron-key.asc
 sudo sh -c "echo 'deb http://download.webmin.com/download/repository sarge contrib' >> /etc/apt/sources.list.d/webmin.list"
 
 sudo apt update
@@ -53,6 +52,7 @@ sudo ufw allow 5432/udp
 sudo ufw allow 8581/tcp
 sudo ufw allow 8581/udp
 sudo ufw allow ssh
+sudo ufw allow 2001
 sudo ufw allow samba
 sudo ufw allow from any to any port 1194 proto udp
 sudo ufw reload

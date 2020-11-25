@@ -48,6 +48,7 @@ sudo ufw enable
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw allow ssh
+sudo ufw allow 2002
 sudo ufw allow samba
 sudo ufw allow from any to any port 1194 proto udp
 sudo ufw reload
